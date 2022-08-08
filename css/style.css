@@ -1,0 +1,247 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    user-select: none;
+}
+
+:root {
+    --success-background-color: #d4edda;
+    --success-border-color: #c3e6cb;
+    --warning-background-color: #fff3cd;
+    --warning-border-color: #ffeeba;
+    --fields-wrapper-background-color: #ddd;
+}
+
+html,
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1em;
+    background-color: #fff;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 600px;
+    overflow: visible;
+}
+
+#countdown {
+    font-size: 4em;
+    color: red;
+    text-shadow: 1px 1px 4px rgb(0 0 0 / 75%);
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 20;
+    text-align: center;
+}
+
+
+/* FORM */
+
+label {
+    color: #444;
+}
+
+button,
+select {
+    font-size: 1em;
+}
+
+select {
+    margin-left: 1em;
+    padding: 0.5em;
+    border-radius: 4px;
+}
+
+button {
+    padding: 0.5em 3em;
+    cursor: pointer;
+    transition: filter 250ms ease;
+}
+
+button:disabled {
+    cursor: auto;
+}
+
+button:hover {
+    filter: brightness(80%);
+}
+
+#start {
+    background-color: var(--success-background-color);
+    border: 3px solid var(--success-border-color);
+}
+
+#reset {
+    background-color: var(--warning-background-color);
+    border: 3px solid var(--warning-border-color);
+}
+
+
+/* \FORM */
+
+
+/* ALERT */
+
+#alert {
+    position: fixed;
+    top: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    min-width: 200px;
+    text-align: center;
+    padding: 15px;
+    opacity: 0;
+    transition: opacity 250ms ease-in-out;
+    border-style: solid;
+    border-width: 1px;
+    border-color: transparent;
+    border-radius: 4px;
+    z-index: -10;
+}
+
+#alert.info {
+    color: #004085;
+    background-color: #cce5ff;
+    border-color: #b8daff;
+}
+
+#alert.success {
+    color: #155724;
+    background-color: var(--success-background-color);
+    border-color: var(--success-border-color);
+}
+
+#alert.danger {
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+}
+
+#alert.warning {
+    color: #856404;
+    background-color: var(--warning-background-color);
+    border-color: var(--warning-border-color);
+}
+
+
+/* \ ALERT */
+
+
+/* FIELDS */
+
+.fields-row {
+    display: flex;
+    background-color: var(--fields-wrapper-background-color);
+    padding: 15px;
+    border-radius: 4px;
+}
+
+.fields-divider {
+    background-color: var(--fields-wrapper-background-color);
+    width: 15px;
+    margin: 0 5px;
+    border-radius: 4px;
+}
+
+.fields {
+    flex: 1;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+#board .field {
+    background-color: #c31414;
+}
+
+#board.disabled .field {
+    background-color: #666;
+}
+
+#board .field.highlighted {
+    background-color: rgb(255, 255, 0);
+}
+
+#pattern {
+    background-color: #000;
+    border-radius: 4px;
+}
+
+#pattern .field.highlighted {
+    background: linear-gradient(red, transparent), linear-gradient(to top left, lime, transparent), linear-gradient(to top right, blue, transparent);
+    background-blend-mode: screen;
+}
+
+.field {
+    flex: 1 0 21%;
+    padding-bottom: 25%;
+    margin: 1%;
+    border-top-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+
+/* \ FIELDS */
+
+
+/* CONTROLS */
+
+.controls-row {
+    display: flex;
+    flex: 0 0 100%;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+
+/* \ CONTROLS */
+
+
+/* MEDIA */
+
+@media (max-width: 800px) {
+    .fields-row {
+        padding: 15px;
+    }
+    .controls-row {
+        flex-direction: column;
+        padding: 15px;
+    }
+    .controls-row button {
+        width: 100%;
+        margin-top: 10px;
+    }
+}
+
+@media (max-width: 350px) {
+    .fields-row {
+        flex-direction: column;
+        padding: 15px;
+        background-color: #fff;
+    }
+    .fields-divider {
+        width: 0;
+        height: 15px;
+        background-color: #fff;
+    }
+}
+
+
+/* \ MEDIA */
